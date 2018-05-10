@@ -22,13 +22,23 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Групповая рассылка сообщений';
-$string['key1'] = 'Отправить сообщение группе';
-$string['key2'] = 'Локальные группы не найдены';
-$string['key3'] = 'Выберите группу';
-$string['key4'] = 'Сообщение';
-$string['key5'] = 'Группа';
-$string['key6'] = 'Отправить сообщение';
-$string['key7'] = 'Вернуться к курсу';
-$string['key8'] = 'Сообщение было успешно отправлено';
-$string['key9'] = 'Новое групповое сообщение от пользователя {$a}';
+//$string['pluginname'] = 'Групповая рассылка сообщений';
+$string['pluginname'] = 'Group message sending';
+//$string['key1'] = 'Отправить сообщение группе';
+$string['key1'] = 'Send a message to the group';
+//$string['key2'] = 'Локальные группы не найдены';
+$string['key2'] = 'Local groups was not found';
+//$string['key3'] = 'Выберите группу';
+$string['key3'] = 'Select a group';
+//$string['key4'] = 'Сообщение';
+$string['key4'] = 'Message';
+//$string['key5'] = 'Группа';
+$string['key5'] = 'Group';
+//$string['key6'] = 'Отправить сообщение';
+$string['key6'] = 'Send message';
+//$string['key7'] = 'Вернуться к курсу';
+$string['key7'] = 'Return to the course';
+//$string['key8'] = 'Сообщение было успешно отправлено';
+$string['key8'] = 'The message was sent successfully';
+//$string['key9'] = 'Новое групповое сообщение от пользователя {$a}';
+$string['key9'] = 'The new group message was sent from user {$a}';
