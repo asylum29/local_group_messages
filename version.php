@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2018090522;
+$plugin->version   = 2018100520;
 $plugin->maturity  = MATURITY_STABLE;
 $plugin->requires  = 2016052301;
 $plugin->component = 'local_group_messages';

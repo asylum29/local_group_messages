@@ -25,7 +25,6 @@
 require_once('../../config.php');
 
 $id = required_param('id', PARAM_INT);
-$group_id = optional_param('group', -1, PARAM_INT);
 
 $course = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
 
@@ -37,13 +36,13 @@ require_capability('moodle/site:sendmessage', context_system::instance());
 require_capability('moodle/course:managegroups', $context);
 
 $str_title = get_string('key1', 'local_group_messages');
-$PAGE->set_title("$course->shortname: $str_title");
+$PAGE->set_title($str_title);
 $PAGE->set_heading($course->fullname);
 $PAGE->set_pagelayout('incourse');
 
-$redirecturl = new moodle_url($CFG->wwwroot . '/course/view.php', array('id' => $id));
 $sendmsgform = new \local_group_messages\message_form(null, array('course' => $course));
 if ($sendmsgform->is_cancelled()) {
+    $redirecturl = new moodle_url($CFG->wwwroot . '/course/view.php', array('id' => $id));
     redirect($redirecturl);
 } else if ($data = $sendmsgform->get_data()) {
     $users = groups_get_members($data->group);

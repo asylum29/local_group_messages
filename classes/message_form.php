@@ -33,8 +33,6 @@ class message_form extends \moodleform
 
     public function definition()
     {
-        global $CFG;
-
         $mform = &$this->_form;
         $course = $this->_customdata['course'];
 
@@ -59,15 +57,13 @@ class message_form extends \moodleform
 
     public function validation($data, $files)
     {
-        global $DB;
-
         $errors = parent::validation($data, $files);
 
-        if (!$data['group']) { // форма сама проверит группы, которые не существуют в курсе
+        if (!isset($data['group']) || !$data['group']) { // форма сама проверит группы, которые не существуют в курсе
             $errors['group'] = get_string('required');
         }
 
-        if (trim($data['message']) === '') {
+        if (!isset($data['message']) || trim($data['message']) === '') {
             $errors['message'] = get_string('required');
         }
 
