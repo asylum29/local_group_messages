@@ -72,8 +72,7 @@ class message_form extends \moodleform
     protected function get_group_options($courseid) {
         $options = array();
         $groups = groups_get_all_groups($courseid);
-        $options[0] = count($groups) > 0 ?
-            get_string('key3', 'local_group_messages') : get_string('key2', 'local_group_messages') ;
+        $options[0] = get_string('key3', 'local_group_messages');
         foreach ($groups as $group) {
             $options[$group->id] = $group->name;
         }
