@@ -35,6 +35,9 @@ $context = context_course::instance($course->id);
 require_capability('moodle/site:sendmessage', context_system::instance());
 require_capability('moodle/course:managegroups', $context);
 
+$groups = groups_get_all_groups($PAGE->course->id);
+if (count($groups) == 0) print_error('error');
+
 $str_title = get_string('key1', 'local_group_messages');
 $PAGE->set_title($str_title);
 $PAGE->set_heading($course->fullname);

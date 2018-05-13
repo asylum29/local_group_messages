@@ -37,8 +37,13 @@ function local_group_messages_extend_navigation_course(navigation_node $navigati
     if (!$sendmessage || !$managegroups) {
         return;
     }
+
+    $groups = groups_get_all_groups($PAGE->course->id);
+    if (count($groups) == 0) {
+        return;
+    }
     
     $url = new moodle_url('/local/group_messages/index.php', array('id' => $PAGE->course->id));
-    $navigation->add(get_string('key1', 'local_group_messages'), $url, navigation_node::TYPE_SETTING, 
+    $navigation->get('users')->add(get_string('key1', 'local_group_messages'), $url, navigation_node::TYPE_SETTING,
         null, null, new pix_icon('t/message', ''));
 }

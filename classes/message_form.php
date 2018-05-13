@@ -30,7 +30,6 @@ require_once($CFG->libdir . '/formslib.php');
 
 class message_form extends \moodleform
 {
-
     public function definition()
     {
         $mform = &$this->_form;
