@@ -35,8 +35,10 @@ $context = context_course::instance($course->id);
 require_capability('moodle/site:sendmessage', context_system::instance());
 require_capability('moodle/course:managegroups', $context);
 
-$groups = groups_get_all_groups($PAGE->course->id);
-if (count($groups) == 0) print_error('error');
+$groups = groups_get_all_groups($course->id);
+if (count($groups) == 0)  {
+    print_error('error');
+}
 
 $str_title = get_string('key1', 'local_group_messages');
 $PAGE->set_title($str_title);
@@ -48,7 +50,14 @@ if ($sendmsgform->is_cancelled()) {
     $redirecturl = new moodle_url($CFG->wwwroot . '/course/view.php', array('id' => $id));
     redirect($redirecturl);
 } else if ($data = $sendmsgform->get_data()) {
-    $users = groups_get_members($data->group);
+    $users = array();
+    if ($data->group == 0) {
+        foreach ($groups as $group) {
+            $users += groups_get_members($group->id);
+        }
+    } else {
+        $users = groups_get_members($data->group);
+    }
     foreach ($users as $user) {
         $message = new stdClass();
         $message->component         = 'local_group_messages';

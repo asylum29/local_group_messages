@@ -58,7 +58,7 @@ class message_form extends \moodleform
     {
         $errors = parent::validation($data, $files);
 
-        if (!isset($data['group']) || !$data['group']) { // форма сама проверит группы, которые не существуют в курсе
+        if (!isset($data['group']) || $data['group'] < 0) { // форма сама проверит группы, которые не существуют в курсе
             $errors['group'] = get_string('required');
         }
 
@@ -72,7 +72,10 @@ class message_form extends \moodleform
     protected function get_group_options($courseid) {
         $options = array();
         $groups = groups_get_all_groups($courseid);
-        $options[0] = get_string('key3', 'local_group_messages');
+        $options[-1] = get_string('key3', 'local_group_messages');
+        if (count($groups) > 1) {
+            $options[0] = get_string('key2', 'local_group_messages');
+        }
         foreach ($groups as $group) {
             $options[$group->id] = $group->name;
         }

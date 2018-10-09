@@ -26,6 +26,8 @@
 $string['pluginname'] = 'Group message sending';
 //$string['key1'] = 'Отправить сообщение группе';
 $string['key1'] = 'Send a message to the group';
+//$string['key2'] = 'Все группы';
+$string['key2'] = 'All groups';
 //$string['key3'] = 'Выберите группу';
 $string['key3'] = 'Select a group';
 //$string['key4'] = 'Сообщение';
