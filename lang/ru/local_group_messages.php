@@ -23,6 +23,7 @@
  */
 
 $string['pluginname'] = 'Групповая рассылка сообщений';
+$string['messageprovider:message'] = 'Сообщение отправлено';
 $string['key1'] = 'Отправить сообщение группе';
 $string['key2'] = 'Все группы';
 $string['key3'] = 'Выберите группу';
